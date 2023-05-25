@@ -1,0 +1,509 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>JAVA规划</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h2><a name="技术栈展示" class="md-header-anchor"></a><span>技术栈展示</span></h2><p><span>列举一下</span><strong><span>面试常问造火箭</span></strong><span>技术栈</span></p><ul><li><p><span>JVM</span></p><ul><li><span>JVM内存构成</span></li><li><span>JVM垃圾回收算法</span></li><li><span>JVM垃圾回收器</span></li></ul></li><li><p><span>集合类</span></p><ul><li><span>HashMap底层原理</span></li><li><span>ConcurrentHashMap原理    </span></li></ul></li><li><p><span>并发编程</span></p><ul><li><span>Synchronized</span></li><li><span>volatile</span></li><li><span>LOCK接口</span></li><li><span>AQS</span></li><li><span>AQS实现类</span></li><li><span>Aotomic原子类</span></li><li><span>线程&amp;线程池</span></li></ul></li><li><p><span>mysql</span></p><ul><li><span>索引</span></li><li><span>B+树</span></li><li><span>sql优化</span></li></ul></li><li><p><span>redis</span></p><ul><li><span>数据结构</span></li><li><span>应用场景</span></li><li><span>缓存雪崩</span></li><li><span>缓存穿透</span></li><li><span>缓存积压</span></li><li><span>持久化</span></li></ul></li><li><p><span>消息中间件</span></p><ul><li><span>应用场景</span></li><li><span>消息积压</span></li><li><span>消息重复</span></li><li><span>顺序消息</span></li><li><span>分布式事务</span></li></ul></li><li><p><span>spring</span></p><ul><li><span>IOC</span></li><li><span>AOP</span></li><li><span>事务</span></li></ul></li><li><p><span>分布式框架(spring cloud)</span></p></li><li><p><span>计算机网络(常考就那几题，不用花很多时间)</span></p><ul><li><span>三次握手</span></li><li><span>四次挥手</span></li><li><span>HTTP和UDP的区别</span></li></ul></li><li><p><span>操作系统(常考就那几题，不用花很多时间)</span></p><ul><li><span>线程和进程</span></li><li><span>死锁</span></li></ul></li></ul><hr /><p><span>======================</span><strong><span>学习规划从这里开始</span></strong><span>=================================</span></p><p><span>======================</span><strong><span>学习规划从这里开始</span></strong><span>=================================</span></p><p><span>======================</span><strong><span>学习规划从这里开始</span></strong><span>=================================</span></p><hr /><h3><a name="面试相关10-15天" class="md-header-anchor"></a><span>面试相关(10-15天)</span></h3><p><span>主要搭配我给你的</span><strong><span>面试题</span></strong><span>，可以先过一遍。特别是</span><strong><span>并发编程、MQ底层、mysql底层、redis底层</span></strong><span>，要详细的去看，可搭配视频和专栏。</span></p><h4><a name="优先级" class="md-header-anchor"></a><span>优先级</span></h4><ul><li><strong><span>高</span></strong><span>：MySQL底层、并发编程(mysql执行速度和接口执行速度很重要，在面试中问的频率很高，工作上也能遇到)</span></li><li><strong><span>中</span></strong><span>：Redis底层、MQ底层</span></li><li><span>低：框架源码---Spring源码，看这个源码太浪费时间，而且现在问的也不是很多，可以先看看除了源码之外的考察重点，比如ioc，aop，循环注入，传播机制等，有时间的话再去看源码这块，对于以后工作coding有很大的提升。</span></li></ul><h4><a name="总体大纲推荐先看" class="md-header-anchor"></a><span>总体大纲(推荐先看)</span></h4><p><strong><span>下面的课程能快速掌握一些面试点,推荐先看这里的，很快就能把基本重要的知识点过一遍</span></strong></p><p><strong><span>关于dubbo和zookeeper的内容不需要看了，因为这个技术已经被spring cloud替代了，所以不需要再看了。</span></strong></p><ul><li><p><span>HashMap必看：</span><a href='https://www.bilibili.com/video/BV1LJ411W7dP' target='_blank' class='url'>https://www.bilibili.com/video/BV1LJ411W7dP</a></p></li><li><p><span>mysql优化必看：</span><a href='https://www.bilibili.com/video/BV1KW411u7vy?p=14' target='_blank' class='url'>https://www.bilibili.com/video/BV1KW411u7vy?p=14</a><strong><span>（P14-P61）</span></strong></p></li><li><p><span>HashMap、并发编程、JVM、Redis、Spring、mysql：</span><a href='https://www.bilibili.com/video/BV1zE411G72m' target='_blank' class='url'>https://www.bilibili.com/video/BV1zE411G72m</a><span> </span></p></li><li><p><strong><span>MVCC相关的三篇文章，一定要看</span></strong></p><ul><li><a href='https://mp.weixin.qq.com/s?__biz=MzI4Mjg2NjUzNw==&amp;mid=2247484638&amp;idx=1&amp;sn=6645ae0033ce4b7f2b85a6933b2b4b99&amp;scene=21#wechat_redirect' target='_blank' class='url'>https://mp.weixin.qq.com/s?__biz=MzI4Mjg2NjUzNw==&mid=2247484638&idx=1&sn=6645ae0033ce4b7f2b85a6933b2b4b99&scene=21#wechat_redirect</a></li><li><a href='https://mp.weixin.qq.com/s?__biz=MzI4Mjg2NjUzNw==&amp;mid=2247484664&amp;idx=1&amp;sn=ece7631a6d6109efb62cf12c9efae5ff&amp;scene=21#wechat_redirect' target='_blank' class='url'>https://mp.weixin.qq.com/s?__biz=MzI4Mjg2NjUzNw==&mid=2247484664&idx=1&sn=ece7631a6d6109efb62cf12c9efae5ff&scene=21#wechat_redirect</a></li><li><a href='https://mp.weixin.qq.com/s/QCyzs91AavUD0o23Y4wLjw' target='_blank' class='url'>https://mp.weixin.qq.com/s/QCyzs91AavUD0o23Y4wLjw</a></li></ul></li><li><p><span>AQS：</span><a href='https://www.bilibili.com/video/BV1Hy4y1B78T' target='_blank' class='url'>https://www.bilibili.com/video/BV1Hy4y1B78T</a><span>中的AQS</span></p></li><li><p><strong><span>只需要看</span></strong><span>对应的MQ、Redis、分布式锁、分布式(其他的都不需要看)：</span><a href='https://www.bilibili.com/video/BV1kJ411n7u7' target='_blank' class='url'>https://www.bilibili.com/video/BV1kJ411n7u7</a><span>  （对应笔记：</span><a href='https://gitee.com/beifeng_java/Java-Interview-Advanced-master#%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB%E7%AC%AC%E4%B8%80%E5%AD%A3' target='_blank' class='url'>https://gitee.com/beifeng_java/Java-Interview-Advanced-master#%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB%E7%AC%AC%E4%B8%80%E5%AD%A3</a><span>）</span></p></li><li><p><span>分布式锁推荐看的视频：</span><a href='https://www.bilibili.com/video/BV1Hy4y1B78T' target='_blank' class='url'>https://www.bilibili.com/video/BV1Hy4y1B78T</a><span>中的分布式锁</span></p></li><li><p><span>AQS推荐看视频：</span><a href='https://www.bilibili.com/video/BV1Hy4y1B78T?p=7' target='_blank' class='url'>https://www.bilibili.com/video/BV1Hy4y1B78T?p=7</a></p></li><li><p><span>thradlocal推荐看看：</span><a href='https://www.bilibili.com/video/BV1fA411b7SX?from=search&amp;seid=6966993745227957275'><span>https://www.bilibili.com/video/BV1fA411b7SX</span></a><span>   </span></p></li><li><p><span>Spring循环依赖相关：</span><a href='https://www.bilibili.com/video/BV1Hy4y1B78T' target='_blank' class='url'>https://www.bilibili.com/video/BV1Hy4y1B78T</a><span>中的循环依赖</span></p></li></ul><hr /><h3><a name="项目3-5天仅仅看面试重点的章节主要为简历上的项目赋能）" class="md-header-anchor"></a><span>项目（3-5天，仅仅看面试重点的章节：主要为简历上的项目赋能）</span></h3><p><span>谷粒商城，之所以用电商，是因为他涉及到了三高，微服务，技术栈使用在项目上覆盖最全，技术本身服务业务，我们主要是学</span><strong><span>技术栈在项目中的使用</span></strong><span>，一些业务，一些场景，并不是学习商城的业务。不要感觉商城烂大街，学会商城里面的技术使用，什么类型的项目都可以完成。</span></p><p><span>视频地址：</span><a href='https://www.bilibili.com/video/BV1np4y1C7Yf' target='_blank' class='url'>https://www.bilibili.com/video/BV1np4y1C7Yf</a></p><p><strong><span>源码笔记地址</span></strong><span>：</span><a href='https://gitee.com/beifeng_java/gulimall' target='_blank' class='url'>https://gitee.com/beifeng_java/gulimall</a></p><p><span>资料网盘地址： </span><a href='https://pan.baidu.com/s/1FJF1_SMzm_rTBF0lU5Pdug?pwd=7777' target='_blank' class='url'>https://pan.baidu.com/s/1FJF1_SMzm_rTBF0lU5Pdug?pwd=7777</a><span> 提取码: 7777 </span></p><p><span>这个项目分为三篇，</span><strong><span>基础篇，高级</span></strong><span>，架构篇。不需要从零开头搭建一个完整的项目，学习这个项目主要学习技术在项目里面的应用，因此完全没有必要从零去构建。</span><strong><span>可以参考上面给的源码。</span></strong></p><p><strong><span>不推荐用linux安装再安装一套中间件了</span></strong><span>，直接用之前学习的就行， 因为工作上这块都是运维负责的，可以大大减少我们的学习时间。</span></p><p><strong><span>个人推荐了解一下项目背景，直接看我下面列举的重点就行了，因为最重要的环节(80%)在面试相关</span></strong><span>。因此这个阶段主要是了解并发、中间件在项目中的应用。等后面面试的东西看完了，有时间的话，可以再回头看项目，理解起来更容易了，也能知道面试造火箭的技术栈在项目中的应用了，达到事半功倍的效果。</span></p><ul><li><p><span>基础篇</span><strong><span>(P1-P101)</span></strong></p><ul><li><span>基础篇是前后端分离的，前端也会讲，</span><strong><span>建议前端直接跳过</span></strong><span>。(比如reren-fast-vue不需要构建)，只要后端接口能用</span><strong><span>postman</span></strong><span>掉通就行。</span></li><li><span>基础篇前端的东西比较多，前端的东西可以直接跳过，需要搭建一个生成代码的页面，这个可以用easycode插件直接生成就行了。</span></li><li><span>这个阶段主要是搭建一个分布式的项目。</span></li></ul></li><li><p><span>高级篇(</span><strong><span>P102-P338</span></strong><span>)</span><strong><span>（重点）</span></strong></p><ul><li><span>这里面比较重要，涉及到了很多的技术栈，比如ES，如果不想学的话，可以跳过，但是不影响整体项目的，但是也是可以学习的，也是</span><strong><span>从零搭建</span></strong><span>的。</span></li></ul></li><li><p><span>架构篇</span><strong><span>（不需要看）</span></strong><span>面试工作都用不到</span></p></li></ul><h4><a name="日常工作提升重点看的内容可以跳着看）" class="md-header-anchor"></a><span>日常工作提升重点看的内容（可以跳着看）</span></h4><ul><li><span>JSR303校验相关：</span><a href='https://www.bilibili.com/video/BV1np4y1C7Yf?p=66' target='_blank' class='url'>https://www.bilibili.com/video/BV1np4y1C7Yf?p=66</a></li></ul><h4><a name="面试重点看的章节主要为简历上的项目赋能" class="md-header-anchor"></a><strong><span>面试重点看的章节：主要为简历上的项目赋能</span></strong></h4><p><span>看这个的原因就是可以写在简历上，让简历有</span><strong><span>亮点</span></strong><span>。而且可以直接看，无需要依赖前面的业务，主要就是学习技术方案的</span></p><ul><li><span>Redis相关：</span><a href='https://www.bilibili.com/video/BV1np4y1C7Yf?p=150' target='_blank' class='url'>https://www.bilibili.com/video/BV1np4y1C7Yf?p=150</a><span>  —— p166</span></li><li><span>异步编排：</span><a href='https://www.bilibili.com/video/BV1np4y1C7Yf?p=193' target='_blank' class='url'>https://www.bilibili.com/video/BV1np4y1C7Yf?p=193</a></li><li><span>threadlocal:</span><a href='https://www.bilibili.com/video/BV1np4y1C7Yf?p=239' target='_blank' class='url'>https://www.bilibili.com/video/BV1np4y1C7Yf?p=239</a></li><li><span>MQ相关：</span><a href='https://www.bilibili.com/video/BV1np4y1C7Yf?p=248' target='_blank' class='url'>https://www.bilibili.com/video/BV1np4y1C7Yf?p=248</a><span>  ——P261</span></li><li><span>分布式事务相关：</span><a href='https://www.bilibili.com/video/BV1np4y1C7Yf?p=284' target='_blank' class='url'>https://www.bilibili.com/video/BV1np4y1C7Yf?p=284</a><span>    ——P291</span></li><li><span>秒杀-高并发相关：</span><a href='https://www.bilibili.com/video/BV1np4y1C7Yf?p=311' target='_blank' class='url'>https://www.bilibili.com/video/BV1np4y1C7Yf?p=311</a><span> —— P325</span></li></ul><hr /><p><strong><span>基本上上面的视频+我整理的面试考点，能覆盖面试所有的知识点。下面的资料，是更深入的去了解底层原理，一般情况下，把上面的看懂吸收80%左右，基本上就可以达到面试水平，现在基本上大厂应届生、社招1-5都是面试的这些东西。</span></strong></p><p><span>百度网盘链接：</span><a href='https://pan.baidu.com/s/1K-XNqq0PXFsPE50G0_FmDA' target='_blank' class='url'>https://pan.baidu.com/s/1K-XNqq0PXFsPE50G0_FmDA</a><span>  （用到再下载）提取码：d4jb </span></p><hr /><p><strong><span>如果哪个面试点还是不是很明白，下面可以深入</span></strong></p><h4><a name="并发编程jvm" class="md-header-anchor"></a><span>并发编程&amp;JVM</span></h4><h5><a name="jvm" class="md-header-anchor"></a><span>JVM</span></h5><ul><li><span>我写的笔记</span></li><li><span>《从 0 开始带你成为JVM实战高手》</span></li></ul><h5><a name="并发编程重要" class="md-header-anchor"></a><span>并发编程(重要)</span></h5><h5><a name="并发编程" class="md-header-anchor"></a><span>并发编程</span></h5><ul><li><p><span>《玩转Java并发工具，精通JUC，成为并发多面手》</span></p></li><li><p><span>可以搭配博客</span><a href='https://juejin.im/post/5aeed586f265da0b8262b019' target='_blank' class='url'>https://juejin.im/post/5aeed586f265da0b8262b019</a></p></li><li><p><strong><span>专栏</span></strong></p><p><span>	</span><span>《Java并发编程实战》</span></p></li></ul><h4><a name="mysql" class="md-header-anchor"></a><span>mysql</span></h4><ul><li><p><strong><span>专栏</span></strong></p><p><span>	</span><span> 《MySQL实战45讲》</span></p></li></ul><h4><a name="redis" class="md-header-anchor"></a><span>Redis</span></h4><p><span>		</span><strong><span>专栏</span></strong></p><ul><li><span>《Redis核心技术与实战》</span></li><li><a href='https://www.bilibili.com/video/BV1Hy4y1B78T' target='_blank' class='url'>https://www.bilibili.com/video/BV1Hy4y1B78T</a><span> （里面关于redis的内容）</span></li></ul><h4><a name="spring源码" class="md-header-anchor"></a><span>Spring源码</span></h4><p><span>《剑指Java自研框架，决胜Spring源码》这个是从基础开始讲解的，从最基础的反射，设计模式。 </span></p></div>
+</body>
+</html>
